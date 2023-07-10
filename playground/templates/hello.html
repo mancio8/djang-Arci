@@ -1,0 +1,585 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+  crossorigin="anonymous"
+></script>
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="generator" content="Jekyll v4.2.0" />
+
+    <title>ArciGuardia</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">ArciGuardia</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="container bg-success text-dark bg-opacity-25 pt-3"
+      id="Print"
+    >
+      <button
+        type="button"
+        onclick="inizioST()"
+        id="secondoTempo"
+        class="btn btn-primary btn-lg"
+      >
+        Secondto tempo
+      </button>
+
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="inizioP"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Inizia Partita
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Scegli squadre
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                  <select
+                    id="team1"
+                    class="form-select form-select-lg mb-3 bg-primary text-white"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Seleziona Team1</option>
+                    <option value="Cantina Pirata">Cantina Pirata</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <select
+                    id="team2"
+                    class="form-select form-select-lg mb-3 bg-danger text-white"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option selected>Seleziona Team2</option>
+                    <option value="1">One</option>
+                    <option value="Misericordia">Misericordia</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                data-bs-dismiss="modal"
+                class="btn btn-primary"
+                onclick="start()"
+              >
+                Inizia
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress mx-auto mb-2" style="max-width: 300px">
+        <div
+          class="progress-bar bg-success"
+          role="progressbar"
+          id="progressBar"
+          style="width: 100%"
+          aria-valuenow="50"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+      <h1 id="time" align="center">20:00</h1>
+      <div class="row" align="center">
+        <div class="col">
+          <div class="row bg-primary text-white" id="rowT1">
+            <h1 id="labelTeam1">
+              Squadra1
+              <h1 id="result1">0</h1>
+            </h1>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row bg-danger text-white" id="rowT2">
+            <h1 id="labelTeam2">
+              Squadra2
+              <h1 id="result2">0</h1>
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="row" align="center">
+        <div class="col-5">
+          <div class="row pt-2">
+            <button
+              type="button"
+              id="goalTeam1"
+              onclick="incrementa1()"
+              class="btn btn-primary btn-lg"
+            >
+              Goal
+            </button>
+          </div>
+          <div class="row" id="rowFalli1">
+            <h1><h2 id="fallo1">0</h2></h1>
+          </div>
+          <div class="row">
+            <button
+              type="button"
+              id="buttonfallo1"
+              onclick="incrementa_falli1()"
+              class="btn btn-primary btn-lg"
+            >
+              Fallo
+            </button>
+          </div>
+          <div class="row pt-3">
+            <div class="col">
+              <button
+                type="button"
+                id="annullaG1"
+                class="btn btn-primary btn-lg"
+                onclick="decrementa1()"
+              >
+                Annulla Goal
+              </button>
+            </div>
+            <div class="col">
+              <button
+                type="button"
+                id="annullaF1"
+                class="btn btn-primary btn-lg"
+                onclick="decrementa_falli1()"
+              >
+                Annulla Fallo
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col offset-1"></div>
+        <div class="col-5">
+          <div class="row pt-2">
+            <button
+              type="button"
+              id="goalTeam2"
+              onclick="incrementa2()"
+              class="btn btn-danger btn-lg"
+            >
+              Goal
+            </button>
+          </div>
+          <div class="row" id="rowFalli2">
+            <h1><h2 id="fallo2">0</h2></h1>
+          </div>
+          <div class="row">
+            <button
+              type="button"
+              id="buttonfallo2"
+              class="btn btn-danger btn-lg"
+              onclick="incrementa_falli2()"
+            >
+              Fallo
+            </button>
+          </div>
+          <div class="row pt-3">
+            <div class="col">
+              <button
+                type="button"
+                id="annullaG2"
+                class="btn btn-danger btn-lg"
+                onclick="decrementa2()"
+              >
+                Annulla Goal
+              </button>
+            </div>
+            <div class="col">
+              <button
+                type="button"
+                id="annullaF2"
+                class="btn btn-danger btn-lg"
+                onclick="decrementa_falli2()"
+              >
+                Annulla Fallo
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row pt-3">
+            <button
+              type="button"
+              onclick="finePT()"
+              class="btn btn-warning btn-lg"
+            >
+              Fine Primo tempo
+            </button>
+          </div>
+          <div class="row pt-3">
+            
+            <form method="post" action="{% url 'savedb' %}">{% csrf_token %}
+                <input type="text" name="squadra1" placeholder="team1" id="dbSquadra1" hidden />
+                <input type="text" name="squadra2" placeholder="team2"  id="dbSquadra2" hidden />
+                <input type="text" name="goal1" value="0" id="dbGoal1"hidden/>
+                <input type="text" name="goal2" value="0" id="dbGoal2" hidden/>
+                
+                <input type="submit" value="Fine Partita" class="btn btn-success btn-lg"/>
+            </form>
+          </div>
+        </div>
+      </div>
+      <input type="checkbox" id="st" hidden />
+    </section>
+    <!--
+<div class="container" id="stampa"  align="center" >
+    <div class="row">
+        <div class="col bg-primary text-white">
+            <h1 id="printT1"></h1>
+            <h1 id="punteggio1"></h1>
+        </div>
+        <div class="col bg-danger text-white">
+            <h1 id="printT2"></h1>
+            <h1 id="punteggio2"></h1>
+        </div>
+
+    </div>
+-->
+
+    <section class="container bg-warning" id="stampa" align="center">
+      <div class="row">
+        <div class="col bg-primary text-white">
+          <h1 style="font-size: 400%" id="printT1"></h1>
+          <h1 style="font-size: 900%" id="punteggio1"></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col bg-danger text-white">
+          <h1 style="font-size: 400%" id="printT2"></h1>
+          <h1 style="font-size: 900%" id="punteggio2"></h1>
+        </div>
+      </div>
+    </section>
+
+
+    
+
+    <!-- window.__PUBLIC_PATH__ points to fonts folder location -->
+    <script>
+      window.__PUBLIC_PATH__ = "./fonts";
+    </script>
+
+    <!--Remaining section-->
+    <script>
+      document.getElementById("stampa").style.display = "none";
+      function startTimer(duration, display, bar) {
+        var timer = duration,
+          minutes,
+          seconds;
+        setInterval(function () {
+          minutes = parseInt(timer / 60, 10);
+          seconds = parseInt(timer % 60, 10);
+
+          var totalSeconds = 20 * 60,
+            remainingSeconds = minutes * 60 + seconds;
+
+          bar.style.width = (remainingSeconds * 100) / totalSeconds + "%";
+
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          display.textContent = minutes + ":" + seconds;
+
+          if (--timer < 0 && document.getElementById("st").checked) {
+            timer = duration;
+          }
+        }, 1000);
+      }
+
+      function start() {
+        document.getElementById("labelTeam1").innerText =
+          document.getElementById("team1").value;
+          document.getElementById("dbSquadra1").value =
+          document.getElementById("team1").value;
+          document.getElementById("dbSquadra2").value =
+          document.getElementById("team2").value;
+        document.getElementById("labelTeam2").innerText =
+          document.getElementById("team2").value;
+        document.getElementById("secondoTempo").style.display = "none";
+        document.getElementById("inizioP").style.display = "none";
+        var minutes = 60 * 20,
+          display = document.querySelector("#time");
+        bar = document.querySelector("#progressBar");
+        startTimer(minutes, display, bar);
+      }
+      function finePT() {
+        document
+          .getElementById("rowT1")
+          .setAttribute("class", "row bg-danger text-white");
+        document
+          .getElementById("goalTeam1")
+          .setAttribute("class", "btn btn-danger btn-lg");
+        document
+          .getElementById("buttonfallo1")
+          .setAttribute("class", "btn btn-danger btn-lg");
+        document
+          .getElementById("annullaG1")
+          .setAttribute("class", "btn btn-danger btn-lg");
+        document
+          .getElementById("annullaF1")
+          .setAttribute("class", "btn btn-danger btn-lg");
+        document
+          .getElementById("rowT2")
+          .setAttribute("class", "row bg-primary text-white");
+        document
+          .getElementById("goalTeam2")
+          .setAttribute("class", "btn btn-primary btn-lg");
+        document
+          .getElementById("buttonfallo2")
+          .setAttribute("class", "btn btn-primary btn-lg");
+        document
+          .getElementById("annullaG2")
+          .setAttribute("class", "btn btn-primary btn-lg");
+        document
+          .getElementById("annullaF2")
+          .setAttribute("class", "btn btn-primary btn-lg");
+
+        document.getElementById("fallo2").innerText = "0";
+        document.getElementById("fallo1").innerText = "0";
+
+        document.getElementById("secondoTempo").style.display = "inline";
+      }
+
+      function inizioST() {
+        document.getElementById("st").checked = true;
+        document.getElementById("secondoTempo").style.display = "none";
+      }
+
+      var element = document.getElementById("stampa"); // global variable
+      var getCanvas; // global variable
+      var newData;
+
+      function image() {
+        document.getElementById("printT1").innerText =
+          document.getElementById("labelTeam1").innerText;
+        document.getElementById("printT2").innerText =
+          document.getElementById("labelTeam2").innerText;
+        document.getElementById("punteggio1").innerText =
+          document.getElementById("result1").innerText;
+        document.getElementById("punteggio2").innerText =
+          document.getElementById("result2").innerText;
+        document.getElementById("stampa").style.display = "inline";
+        html2canvas(element, {
+          onrendered: function (canvas) {
+            getCanvas = canvas;
+            var imgageData = getCanvas.toDataURL("image/png");
+            var a = document.createElement("a");
+            a.href = imgageData; //Image Base64 Goes here
+            a.download = "Image.png"; //File name Here
+            a.click(); //Downloaded file
+          },
+        });
+      }
+    </script>
+
+    <script>
+      function incrementa1() {
+        document.getElementById("result1").innerText =
+          parseInt(document.getElementById("result1").innerText) + 1;
+          document.getElementById("dbGoal1").value =
+          document.getElementById("result1").innerText;
+          
+      }
+      function incrementa2() {
+        
+        document.getElementById("result2").innerText =
+          parseInt(document.getElementById("result2").innerText) + 1;
+          document.getElementById("dbGoal2").value =
+          document.getElementById("result2").innerText;
+      }
+      document.getElementById("secondoTempo").style.display = "none";
+
+      function incrementa_falli1() {
+        document.getElementById("fallo1").innerText =
+          parseInt(document.getElementById("fallo1").innerText) + 1;
+        if (parseInt(document.getElementById("fallo1").innerText) > 4) {
+          document
+            .getElementById("rowFalli1")
+            .setAttribute("class", "row bg-warning");
+        }
+      }
+
+      function incrementa_falli2() {
+        document.getElementById("fallo2").innerText =
+          parseInt(document.getElementById("fallo2").innerText) + 1;
+        if (parseInt(document.getElementById("fallo2").innerText) > 4) {
+          document
+            .getElementById("rowFalli2")
+            .setAttribute("class", "row bg-warning");
+        }
+      }
+    </script>
+
+    <script>
+        function decrementa1() {
+            if( parseInt(document.getElementById("result1").innerText)>0){
+                
+                document.getElementById("result1").innerText =
+          parseInt(document.getElementById("result1").innerText) - 1;
+          document.getElementById("dbGoal1").value =
+          document.getElementById("result1").innerText;
+            }
+        
+      }
+      function decrementa2() {
+        if(parseInt(document.getElementById("result2").innerText)>0){
+            
+            document.getElementById("result2").innerText =
+          parseInt(document.getElementById("result2").innerText) - 1;
+          document.getElementById("dbGoal2").value =
+          document.getElementById("result2").innerText;
+        }
+        
+      }
+     
+
+      function decrementa_falli1() {
+        if(parseInt(document.getElementById("fallo1").innerText)>0){
+            document.getElementById("fallo1").innerText =
+          parseInt(document.getElementById("fallo1").innerText) - 1;
+        if (parseInt(document.getElementById("fallo1").innerText) > 4) {
+          document
+            .getElementById("rowFalli1")
+            .setAttribute("class", "row bg-warning");
+        }
+        else{
+            document
+            .getElementById("rowFalli1")
+            .setAttribute("class", "row");
+        }
+        }
+        
+      }
+
+      function decrementa_falli2() {
+        if(parseInt(document.getElementById("fallo2").innerText)>0){
+            document.getElementById("fallo2").innerText =
+          parseInt(document.getElementById("fallo2").innerText) - 1;
+        if (parseInt(document.getElementById("fallo2").innerText) > 4) {
+          document
+            .getElementById("rowFalli2")
+            .setAttribute("class", "row bg-warning");
+        }else{
+            document
+            .getElementById("rowFalli2")
+            .setAttribute("class", "row");
+        }
+        }
+        
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+  </body>
+</html>

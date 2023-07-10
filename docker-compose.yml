@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  data:
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: arci
+      MYSQL_USER: arci
+      MYSQL_PASSWORD: Arci2023
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3308:3306"
